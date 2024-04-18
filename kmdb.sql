@@ -137,12 +137,66 @@ CREATE TABLE studios (
     name_studio TEXT
 );
 
+CREATE TABLE actors (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name TEXT,
+    last_name TEXT
+);
 
+CREATE TABLE characters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    character_name TEXT,
+    actors_id INTEGER,
+    movie_id INTEGER
+);
 
 
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
+
+INSERT INTO movie ( title, movie_year, MPPA_rating,studio_id)
+    VALUES 
+    ('Batman Begins', '2005', 'PG-13', '1'),
+    ('The Dark Knight', '2008', 'PG-13', '1'),
+    ('The Dark Knight Rises', '2012', 'PG-13', '1');
+
+INSERT INTO studios (name_studio)
+VALUES (
+   "Warner Bros"
+);
+
+INSERT INTO actors ( first_name, last_name)
+    VALUES
+        ('Tom', 'Hardy'),
+        ('Maggie', 'Gyllenhaal'),
+        ('Liam', 'Neeson'),
+        ('Katie', 'Holmes'),
+        ('Heath', 'Ledger'),
+        ('Gary', 'Oldman'),
+        ('Christian', 'Bale'),
+        ('Anne', 'Hathaway'),
+        ('Aaron', 'Eckhart'),
+        ('Michael', 'Caine'),
+        ('Joseph', 'Gordon-Levitt');
+
+INSERT INTO characters (character_name, actors_id, movie_id)
+    VALUES
+        ('Bruce Wayne',7, 1),
+        ('Alfred',10, 1),
+        ("Ra's Al Ghul",3,1),
+        ('Rachel Dawes',4, 1),
+        ('Commissioner Gordon',6, 2),
+        ('Bruce Wayne',7,2),
+        ('Jocker',5,2),
+        ('Harvey Dent',9,2),
+        ('Alfred',10,2),
+        ('Rachel Dawes',2,2),
+        ('Bruce Wayne',7,3),
+        ('Comissioner Gordon',6,3),
+        ('Bane',1,3),
+        ('John Blake',11,3),
+        ('Selina Kyle',8,3);
 
 -- Prints a header for the movies output
 .print "Movies"
@@ -151,6 +205,9 @@ CREATE TABLE studios (
 
 -- The SQL statement for the movies output
 -- TODO!
+
+SELECT title, movie_year, MPPA_rating
+FROM movie;
 
 -- Prints a header for the cast output
 .print ""
