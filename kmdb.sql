@@ -124,6 +124,22 @@ DROP TABLE IF EXISTS characters;
 -- Create new tables, according to your domain model
 -- TODO!
 
+CREATE TABLE movie (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT,
+    movie_year TEXT,
+    MPPA_rating TEXT,
+    studio_id INTEGER
+);
+
+CREATE TABLE studios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name_studio TEXT
+);
+
+
+
+
 -- Insert data into your database that reflects the sample data shown above
 -- Use hard-coded foreign key IDs when necessary
 -- TODO!
