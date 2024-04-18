@@ -206,8 +206,10 @@ INSERT INTO characters (character_name, actors_id, movie_id)
 -- The SQL statement for the movies output
 -- TODO!
 
-SELECT title, movie_year, MPPA_rating
-FROM movie;
+SELECT title, movie_year, MPPA_rating, name_studio
+FROM movie
+INNER JOIN studios ON movie.studio_id=studios.id;
+
 
 -- Prints a header for the cast output
 .print ""
