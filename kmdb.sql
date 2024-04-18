@@ -113,7 +113,7 @@
 -- Drop existing tables, so you'll start fresh each time this script is run.
 -- TODO!
 
-DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS movie;
 DROP TABLE IF EXISTS studios;
 DROP TABLE IF EXISTS actors;
 DROP TABLE IF EXISTS characters;
@@ -221,7 +221,9 @@ INNER JOIN studios ON movie.studio_id=studios.id;
 -- The SQL statement for the cast output
 -- TODO!
 
-SELECT movies.title, actors.fist_name, actors.last_name, characters.character_name
-FROM characters
+SELECT title, first_name, last_name, character_name
+FROM movie
 INNER JOIN characters ON movie.id=characters.movie_id
-INNER JOIN characters ON actors.id=characters.actors_id;
+INNER JOIN actors ON actors.id=characters.actors_id;
+
+
